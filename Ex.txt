@@ -1,0 +1,29 @@
+package EX1;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Main{
+	
+	static String letter = "a";
+	String string;
+
+	public static List<String> filter(List<String> list) {
+		return list.stream()
+					.filter(w -> w.length() == 3)
+					.filter(w -> w.charAt(0) == letter.charAt(0))
+					.collect(Collectors.toList());
+	}	
+	
+	public static void main(String[] args) {
+		
+		List<String> palavras = Arrays.asList("ago", "air","all", "sky", "Ant", "after", "afternoon");
+		System.out.println("Words before filter: " + palavras);
+		
+		List<String> end = filter(palavras);
+		
+		System.out.println("Words after filter: " + end);
+		
+	}
+}
